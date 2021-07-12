@@ -1,0 +1,29 @@
+.sections {
+  width: 100%;
+  height: calc(100vh - 128px);
+  position: relative;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none; //for firefox
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  > * {
+    width: 100vw;
+    //min-height: calc(100vh - 128px);
+    height: calc(100vh - 128px);
+    scroll-snap-align: start;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
