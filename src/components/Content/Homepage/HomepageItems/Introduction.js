@@ -7,7 +7,7 @@ import kitchen from "../../../../assets/svg/restaurant_black_24dp.svg";
 
 const Introduction = (props) => {
     return (
-        <div id="intro">
+        <div id="introduction">
             <div className="bg-gradient-to-r bg-green-200 bg-indigo-200 bg-left-top bg-auto bg-repeat-x h-80"/>
 
             <div className="-mt-64">

@@ -1,6 +1,6 @@
 module.exports = {
     // https://tailwindcss.com/docs/just-in-time-mode#enabling-jit-mode
-    mode: 'jit',
+    // mode: 'jit',
     purge: [
         './src/**/*.{js,jsx,ts,tsx}',
         './public/**/*.html',

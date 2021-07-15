@@ -17,28 +17,28 @@ import Layout from "./components/UI/Layout/Layout";
 function App() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [menu, setMenu] = useState('')
-
-    useEffect(() => {
-        // Update the document title using the browser API
-        console.log(menu)
-    }, [menu, setMenu])
+    const [isTop, setIsTop] = useState({
+        top: true,
+        ref: null,
+        intro: null
+    })
 
     return (
         <div className="app">
             <Router>
-                <Layout menuOpen={menuOpen} setMenuOpen={setMenuOpen} menu={menu} setMenu={setMenu}>
+                <Layout menuOpen={menuOpen} setMenuOpen={setMenuOpen} menu={menu} setMenu={setMenu} isTop={isTop} setIsTop={setIsTop}>
                     <Switch>
                         <Route path={'/'} exact>
-                            <Homepage menu={menu} setMenu={setMenu}/>
+                            <Homepage menu={menu} setMenu={setMenu} isTop={isTop} setIsTop={setIsTop}/>
                         </Route>
                         <Route path={'/blog'} exact>
                             <Blog menu={menu} setMenu={setMenu}/>
                         </Route>
                         <Route path={'/hobbies'} exact >
-                            <Hobbies/>
+                            <Hobbies menu={menu} setMenu={setMenu}/>
                         </Route>
                         <Route path={'/kitchen'} exact>
-                            <Kitchen/>
+                            <Kitchen menu={menu} setMenu={setMenu}/>
                         </Route>
                         <Route path={'*'}>
                             <Redirect to={"/"}/>

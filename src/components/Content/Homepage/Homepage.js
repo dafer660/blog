@@ -1,5 +1,5 @@
-import React, {useEffect, useRef, useState} from 'react'
-import ReactDOM from 'react-dom'
+import React, {createRef, useEffect, useRef, useState} from 'react'
+import {useLocation} from "react-router-dom";
 
 import './Homepage.scss'
 
@@ -9,48 +9,59 @@ import Places from "./HomepageItems/Places";
 import Food from "./HomepageItems/Food";
 import Wine from "./HomepageItems/Wine";
 import Interests from "./HomepageItems/Interests";
-import {useLocation} from "react-router-dom";
 
 const Homepage = (props) => {
     const location = useLocation()
+    const components = [<Introduction/>, <About/>, <Places/>, <Food/>, <Wine/>, <Interests/>]
+    const elementsRef = useRef(components.map(() => createRef()));
+    const [currentElement, setCurrentElement] = useState({
+        ref: null,
+        child: null
+    })
 
     useEffect(() => {
-        // Update the document title using the browser API
-        console.log(location.pathname)
         props.setMenu(location.pathname)
     }, [])
 
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         const currentScrollY = window.innerHeight
-    //         const element = ReactDOM.findDOMNode(currentRef.current);
-    //         // console.log(currentScrollY);
-    //     };
-    //
-    //     window.addEventListener('wheel', handleScroll, { passive: true });
-    //
-    //     return () => window.removeEventListener('wheel', handleScroll);
-    // }, []);
-
-    const scrollTo = (ref) => {
-        if (ref) {
-            ref.current.scrollIntoView({behavior: 'smooth', block: 'start'})
+    useEffect(() => {
+        if (currentElement.child) {
+            if (currentElement.child.id !== 'introduction') {
+                props.setIsTop({
+                    top: false,
+                    ref: currentElement,
+                    intro: elementsRef
+                })
+            } else if (currentElement.child.id === 'introduction') {
+                props.setIsTop({
+                    top: true,
+                    ref: null,
+                    intro: elementsRef
+                })
+            }
         }
-    }
+    }, [currentElement])
 
-    const handleWheel = (e) => {
-        // console.log(e.target.nextElementSibling)
-        console.log(e)
+    const handleMouseOver = (ref) => {
+        const currentChild = ref.currentTarget.firstElementChild
+        if (ref && currentChild !== currentElement.child) {
+            setCurrentElement({
+                ref: ref,
+                child: ref.currentTarget.firstElementChild
+            })
+        }
     }
 
     return (
         <div id={'sections'} className={'sections'}>
-            <Introduction/>
-            <About/>
-            <Places/>
-            <Food/>
-            <Wine/>
-            <Interests/>
+            {components.map((item, index) => {
+                return (
+                    <div ref={elementsRef.current[index]} key={index}
+                         onMouseOver={(ref) => handleMouseOver(ref)}
+                         onTou
+                    >{item}
+                    </div>
+                )
+            })}
         </div>
     )
 }

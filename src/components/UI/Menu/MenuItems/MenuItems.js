@@ -1,16 +1,29 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import MenuItem from "./MenuItem/MenuItem";
 
 const MenuItems = (props) => {
+    const homepageItems = ['introduction', 'about', 'places', 'food', 'wine', 'interests']
+    const menuItems = ['homepage', 'blog', 'hobbies', 'kitchen']
+    const [items, setItems] = useState([])
+    const [type, setType] = useState('')
+
+    useEffect(() => {
+        if (props.menu === '/') {
+            setItems(homepageItems)
+            setType('homepage')
+        } else {
+            setItems(menuItems)
+            setType('others')
+        }
+    }, [props.menu])
 
     return (
         <>
-            <MenuItem setMenuOpen={props.setMenuOpen} id={'intro'} name={'Introduction'}/>
-            <MenuItem setMenuOpen={props.setMenuOpen} id={'about'} name={'About'}/>
-            <MenuItem setMenuOpen={props.setMenuOpen} id={'places'} name={'Places'}/>
-            <MenuItem setMenuOpen={props.setMenuOpen} id={'food'} name={'Food'}/>
-            <MenuItem setMenuOpen={props.setMenuOpen} id={'wine'} name={'Wine'}/>
-            <MenuItem setMenuOpen={props.setMenuOpen} id={'interests'} name={'Interests'}/>
+            {items.map((item, index) => {
+                return (
+                    <MenuItem setMenuOpen={props.setMenuOpen} key={index} id={item} name={item} type={type}/>
+                )
+            })}
         </>
     )
 }
