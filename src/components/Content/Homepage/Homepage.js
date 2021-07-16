@@ -57,7 +57,6 @@ const Homepage = (props) => {
                 return (
                     <div ref={elementsRef.current[index]} key={index}
                          onMouseOver={(ref) => handleMouseOver(ref)}
-                         onTou
                     >{item}
                     </div>
                 )

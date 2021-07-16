@@ -35,7 +35,7 @@ const About = (props) => {
                     stuff
                 </div>
             </Modal>
-            <div className='grid gap-4 h-4/5 w-full
+            <div className='grid gap-4 h-5/6 w-full
             lg:grid-flow-col lg:grid-rows-none lg:grid-cols-2 lg:gap-8
             md:grid-flow-col md:grid-rows-none md:grid-cols-2 md:gap-8
             sm:grid-rows-2 sm:grid-flow-row sm:gap-4
@@ -44,7 +44,7 @@ const About = (props) => {
                 <div className="flex h-full items-center justify-center overflow-hidden p-2">
                     <img
                         className='flex
-                                w-40 h-40
+                                w-44 h-44
                                 lg:w-80 lg:h-80
                                 md:w-80 md:h-80
                                 sm:w-40 sm:h-40

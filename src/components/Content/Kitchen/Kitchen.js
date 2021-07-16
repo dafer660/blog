@@ -10,9 +10,9 @@ const Kitchen = (props) => {
     }, [])
 
     return (
-        <div>
-            <Development />
-        </div>
+        <>
+            <Development page={'Kitchen'}/>
+        </>
     )
 }
 

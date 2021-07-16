@@ -10,10 +10,9 @@ const Hobbies = (props) => {
     }, [])
 
     return (
-        <div>
-            <h1>Hobbies</h1>
-            <Development/>
-        </div>
+        <>
+            <Development page={'Hobbies'}/>
+        </>
     )
 }
 

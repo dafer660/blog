@@ -10,7 +10,7 @@ const Introduction = (props) => {
         <div id="introduction">
             <div className="bg-gradient-to-r bg-green-200 bg-indigo-200 bg-left-top bg-auto bg-repeat-x h-80"/>
 
-            <div className="-mt-64">
+            <div className="-mt-72 lg:-mt-60 md:-mt-72 sm:-mt-72">
                 <div className="w-full text-center">
                     <p className="text-sm tracking-widest text-black">Welcome to my website</p>
                     <h1 className="font-bold text-3xl text-black">
@@ -18,7 +18,10 @@ const Introduction = (props) => {
                     </h1>
                 </div>
 
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                <div className="grid grid-cols-1 gap-4
+                lg:grid-cols-3 lg:gap-4
+                md:grid-cols-1 md:gap-2
+                sm:grid-cols-1 sm:gap-1">
                     <HomepageCard title={'Blog'} to={'/blog'} image={blog}
                                   content={'Check out my Blog here. Feel free to provide feedback!'}/>
                     <HomepageCard title={'Hobbies'} to={'/hobbies'} image={handyman}

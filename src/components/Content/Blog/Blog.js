@@ -11,7 +11,7 @@ const Blog = (props) => {
 
     return (
         <>
-            <Development />
+            <Development page={'Blog'}/>
         </>
     )
 }
