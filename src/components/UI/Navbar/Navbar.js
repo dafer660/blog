@@ -9,7 +9,7 @@ const Navbar = (props) => {
         <header className={`w-full h-16 fixed top-0 z-40 bg-indigo-600 shadow-xl`}>
             <nav className={`flex h-16 justify-between item-center p-2 text-black`}>
                 <div className={`left flex pl-8 overflow-hidden min-w-14`} onClick={() => props.setMenuOpen(false)}>
-                    <Logo/>
+                    <Logo setMenuOpen={props.setMenuOpen}/>
                 </div>
                 <div className={`right flex pr-8 z-40 cursor-pointer`}
                      onClick={() => props.setMenuOpen(!props.menuOpen)}>

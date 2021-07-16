@@ -16,11 +16,6 @@ const Introduction = (props) => {
                     <h1 className="font-bold text-3xl text-black">
                         FerreiraTech.
                     </h1>
-                    {/*<button*/}
-                    {/*    className={'m-2 p-2 text-xl bg-yellow-300 rounded-lg shadow-lg ' +*/}
-                    {/*    'hover:bg-opacity-75 hover:bg-yellow-600'}*/}
-                    {/*    onClick={props.scrollTo}>About me*/}
-                    {/*</button>*/}
                 </div>
 
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">

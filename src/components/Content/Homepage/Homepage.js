@@ -4,7 +4,7 @@ import {useLocation} from "react-router-dom";
 import './Homepage.scss'
 
 import Introduction from "./HomepageItems/Introduction";
-import About from "./HomepageItems/About";
+import About from "./HomepageItems/About/About";
 import Places from "./HomepageItems/Places";
 import Food from "./HomepageItems/Food";
 import Wine from "./HomepageItems/Wine";
